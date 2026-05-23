@@ -1,0 +1,61 @@
+body{
+background: linear-gradient(
+    to bottom right,
+    #111111,
+    #000000,
+    #111111,
+    #000000
+);
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+margin: 0;
+justify-content: center;
+}
+.mainhero{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 100vh;
+    gap: 10px;
+}
+h1{
+    font-size: 25px;
+    font-style: italic;
+}
+span::after{
+    content:"Video Editor?";
+    animation: change 4s infinite;
+}
+@keyframes change{
+    25%{
+        content:"Motion Expert?";
+
+    }
+    30%{
+        content:"SEO Expert?"
+    }
+}
+.button_part{
+display: flex;
+justify-content: center;
+gap: 10px;
+}
+button{
+width: 120px;
+height: 35px;
+background-color: black;
+color: white;
+border: 2px solid white;
+border-radius: 12px;
+font-size: 16px;
+font-style: italic;
+cursor: pointer;
+transition: 0.3s;
+}
+
+button:hover{
+background-color: white;
+color: black;
+transform: scale(1.05);
+}
