@@ -1,0 +1,188 @@
+/* BACKGROUND SECTION */
+* {
+    box-sizing: border-box; /* Crucial: stops padding from breaking 100% widths */
+}
+body{
+background: linear-gradient(
+    to bottom right,
+    #111111,
+    #000000,
+    #111111,
+    #000000
+);
+margin: 0;
+padding: 0;
+}
+/* MAINALL FIRST SECTION */
+.mainall {
+    position: relative;   /* Keeps absolute child items anchored inside here */
+    width: 100%;
+    height: 100vh;        /* Forces the container to take up exactly one full viewport height */
+    overflow: hidden;     /* Keeps background video from overflowing your boundaries */
+}
+
+/* NAVIGATION BAR SECTION */
+.navmain{
+display: flex;
+position:fixed;
+justify-content:space-between;
+align-items: center;
+width: 100%;
+padding: 20px 50px;
+background: linear-gradient(
+    to bottom right,
+    #00000097,
+    #11111198,
+    #14131376,
+    #0000005d
+);
+z-index: 15;
+}
+.navlinks{
+display: flex;
+gap: 30px;
+}
+.navi{
+    color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
+    text-decoration: none;
+}
+
+
+
+/* NAVIGATION BAR HOVER SECTION */
+.home:hover{
+    transform: scale(1.05);
+    color: rgb(255, 255, 255);
+}
+.portfolio:hover{
+    transform: scale(1.05);
+    color: rgb(255, 255, 255);
+}
+.contact:hover{
+    transform: scale(1.05);
+    color: rgb(255, 255, 255);
+}
+.upwork:hover{
+    transform: scale(1.05);
+    color: rgba(255, 255, 255, 0.575);
+}
+
+/* FIRST VIDEO SECTION */
+.firstvid{
+filter:
+grayscale(100%)
+brightness(40%)
+contrast(120%);
+border: 1px solid rgba(255, 255, 255, 0.055);
+width: 100%;
+height:100%;
+object-fit: cover;
+top:0;
+left:0;
+z-index: 1;
+display: flex;
+position:absolute;
+}
+
+/* HERO TEXT SECTION */
+.herotext{
+    color: rgb(255, 255, 255);
+    font-size: 80px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 600;
+    display: flex;
+    position: absolute;
+    left: 10%;
+    top:30%;
+    z-index: 5;
+}
+.textn{
+    color: rgba(255, 255, 255, 0.409);
+    font-size: 15px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    display: flex;
+    position: absolute;
+    left: 10%;
+    top:77%;
+    z-index: 5;
+}
+.textn2{
+    color: rgb(255, 255, 255);
+    font-size: 85px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 600;
+    display: flex;
+    position: absolute;
+    left: 10.3%;
+    top:45%;
+    z-index: 5;
+    opacity:0;
+
+}
+
+/* SECOND MAINSECOND SECTION */
+.mainsecond {
+    position: relative;   
+    width: 100%;
+    height: 100vh;        /* Takes up exactly the next full viewport screen */
+    overflow: hidden;     /* Keeps the second video contained here */
+}
+
+/* SECOND VIDEO SECTION */
+.secondvid{
+filter:
+grayscale(100%)
+brightness(40%)
+contrast(120%);
+transform: scaleX(-1);
+width: 100%;
+height:100%;
+object-fit: cover;
+top:0;
+left:0;
+z-index: 5;
+display: flex;
+position:absolute;
+}
+.box1{
+  width: 430px;
+  height: 550px;
+  background: rgba(255, 255, 255, 0.048);
+  top:18%;
+  left:68%;
+  border-radius: 20px;
+  position: absolute;
+  z-index: 9;
+}
+
+.text2{
+    color: rgb(255, 255, 255);
+    font-size: 85px;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    font-weight: 400;
+    position: absolute;
+    top: 45%;
+    left: 30%;;
+    z-index: 7;          /* Higher than video z-index (5) so it shows on top */
+}
+
+/* FOOTER BAR SECTION */
+.footbar{
+display: flex;
+justify-content: center;
+text-align: center;
+padding: 15px 1px;
+background: linear-gradient(
+    to bottom right,
+    #00000097,
+    #11111198,
+    #14131376,
+    #0000005d
+);
+color: rgba(255, 255, 255, 0.552);
+font-size: 13px;
+border-top: 2px solid rgba(61, 60, 60, 0.77);
+font-style: italic;
+}
