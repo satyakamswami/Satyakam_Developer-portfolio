@@ -16,7 +16,7 @@ padding: 0;
 /* MAINALL FIRST SECTION */
 .mainall {
     position: relative;   /* Keeps absolute child items anchored inside here */
-    width: 100%;
+    max-width: 100%;
     height: 100vh;        /* Forces the container to take up exactly one full viewport height */
     overflow: hidden;     /* Keeps background video from overflowing your boundaries */
 }
@@ -27,7 +27,7 @@ display: flex;
 position:fixed;
 justify-content:space-between;
 align-items: center;
-width: 100%;
+max-width: 100%;
 padding: 20px 50px;
 background: linear-gradient(
     to bottom right,
@@ -185,4 +185,56 @@ color: rgba(255, 255, 255, 0.552);
 font-size: 13px;
 border-top: 2px solid rgba(61, 60, 60, 0.77);
 font-style: italic;
+}
+/* ==========================================
+   MOBILE RESPONSIVE STYLES (Max width 768px)
+   ========================================== */
+@media screen and (max-width: 768px) {
+    
+    .navmain {
+        width: 100%;
+        padding: 15px 20px; /* Reduce padding so links don't crowd out */
+    }
+    .navlinks {
+        gap: 15px; /* Bring links closer together */
+    }
+
+    /* 2. Scale Down the Giant Hero Typography */
+    .herotext {
+        font-size: 30px;  /* Much more appropriate for mobile screens */
+        left: 5%;        /* Bring it closer to the edge for more text room */
+        top: 25%;
+        width: 90%;       /* Allow text to wrap safely within bounds */
+    }
+    
+    .textn {
+        font-size: 13px;
+        left: 5%;
+        top: 80%;
+        width: 90%;
+    }
+
+    .textn2 {
+        font-size: 38px;
+        left: 5%;
+        top: 45%;
+    }
+
+    /* 3. Fix the Second Section Layout */
+    .box1 {
+        width: 85%;       /* Fluid width adapts perfectly to any phone screen */
+        height: 450px;    /* Slightly shorter height for smaller viewports */
+        left: 50%;        /* Pair with transform below to center it perfectly */
+        top: 10%;
+        transform: translateX(-50%); /* Keeps the container horizontally centered */
+    }
+
+    .text2 {
+        font-size: 38px;  /* Scales down your name title */
+        left: 50%;
+        top: 55%;
+        transform: translateX(-50%);
+        text-align: center;
+        width: 90%;
+    }
 }
