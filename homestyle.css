@@ -204,13 +204,13 @@ font-style: italic;
         font-size: 30px;  /* Much more appropriate for mobile screens */
         left: 5%;        /* Bring it closer to the edge for more text room */
         top: 25%;
-        width: 90%;       /* Allow text to wrap safely within bounds */
+        width: 100%;       /* Allow text to wrap safely within bounds */
     }
     
     .textn {
         font-size: 13px;
         left: 5%;
-        top: 80%;
+        top: 43%;
         width: 90%;
     }
 
