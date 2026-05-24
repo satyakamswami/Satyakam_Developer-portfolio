@@ -201,7 +201,7 @@ font-style: italic;
 
     /* 2. Scale Down the Giant Hero Typography */
     .herotext {
-        font-size: 30px;  /* Much more appropriate for mobile screens */
+        font-size: 49px;  /* Much more appropriate for mobile screens */
         left: 5%;        /* Bring it closer to the edge for more text room */
         top: 25%;
         width: 100%;       /* Allow text to wrap safely within bounds */
@@ -210,7 +210,7 @@ font-style: italic;
     .textn {
         font-size: 13px;
         left: 5%;
-        top: 43%;
+        top: 53%;
         width: 90%;
     }
 
