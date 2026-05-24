@@ -1,240 +1,236 @@
 /* BACKGROUND SECTION */
 * {
-    box-sizing: border-box; /* Crucial: stops padding from breaking 100% widths */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Stops padding from breaking layout width calculations */
 }
-body{
-background: linear-gradient(
-    to bottom right,
-    #111111,
-    #000000,
-    #111111,
-    #000000
-);
-margin: 0;
-padding: 0;
+
+html, body {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden; /* Guards against horizontal layout spills */
 }
+
+body {
+    background: linear-gradient(
+        to bottom right,
+        #111111,
+        #000000,
+        #111111,
+        #000000
+    );
+    cursor: default;
+    position: relative;
+    opacity: 0;
+    animation: pageFadeIn 1s ease forwards;
+}
+
+@keyframes pageFadeIn {
+    to { opacity: 1; }
+}
+
 /* MAINALL FIRST SECTION */
-.mainall {
-    position: relative;   /* Keeps absolute child items anchored inside here */
-    max-width: 100%;
-    height: 100vh;        /* Forces the container to take up exactly one full viewport height */
-    overflow: hidden;     /* Keeps background video from overflowing your boundaries */
+.mainall, .mainsecond {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Crisp, full-screen panels */
+    overflow: hidden;
+    
+    /* Technical layout engine updates to anchor wrappers */
+    display: flex;
+    align-items: center; 
+}
+
+/* FIRST VIDEO SECTION */
+.firstvid, .secondvid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) brightness(40%) contrast(120%);
+    z-index: 1;
+}
+
+.firstvid {
+    border: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+/* SECOND VIDEO SECTION */
+.secondvid { 
+    z-index: 5;
+    transform: scaleX(-1); 
+}
+
+/* STRUCTURAL CONTENT WRAPPERS (Added to handle zoom and responsiveness) */
+.section1-wrapper {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    max-width: 1440px; /* Shields layout from over-stretching on huge monitors */
+    margin: 0 auto;     /* Centers the content container during zoom out */
+    padding: 0 10%;     /* Mimics your precise 10% left alignment offset safely */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.section2-wrapper {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 10%;
+    display: flex;
+    justify-content: space-between; /* Automatically pins name left and box right */
+    align-items: center;
 }
 
 /* NAVIGATION BAR SECTION */
-.navmain{
-display: flex;
-position:fixed;
-justify-content:space-between;
-align-items: center;
-width: 100%;
-padding: 20px 50px;
-background: linear-gradient(
-    to bottom right,
-    #00000097,
-    #11111198,
-    #14131376,
-    #0000005d
-);
-z-index: 15;
+.navmain {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: linear-gradient(
+        to bottom right,
+        #00000097,
+        #11111198,
+        #14131376,
+        #0000005d
+    );
+    z-index: 15;
 }
-.navlinks{
-display: flex;
-gap: 30px;
+
+.navlinks {
+    display: flex;
+    gap: 30px;
 }
-.navi{
+
+.navi {
     color: rgba(255, 255, 255, 0.5);
     font-style: italic;
     text-decoration: none;
+    transition: transform 0.2s ease, color 0.2s ease;
 }
-
-
 
 /* NAVIGATION BAR HOVER SECTION */
-.home:hover{
+.home:hover, .portfolio:hover, .contact:hover {
     transform: scale(1.05);
     color: rgb(255, 255, 255);
 }
-.portfolio:hover{
-    transform: scale(1.05);
-    color: rgb(255, 255, 255);
-}
-.contact:hover{
-    transform: scale(1.05);
-    color: rgb(255, 255, 255);
-}
-.upwork:hover{
+
+.upwork:hover {
     transform: scale(1.05);
     color: rgba(255, 255, 255, 0.575);
 }
 
-/* FIRST VIDEO SECTION */
-.firstvid{
-filter:
-grayscale(100%)
-brightness(40%)
-contrast(120%);
-border: 1px solid rgba(255, 255, 255, 0.055);
-width: 100%;
-height:100%;
-object-fit: cover;
-top:0;
-left:0;
-z-index: 1;
-display: flex;
-position:absolute;
-}
-
 /* HERO TEXT SECTION */
-.herotext{
+.herotext {
     color: rgb(255, 255, 255);
     font-size: 80px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', Arial, sans-serif;
     font-weight: 600;
-    display: flex;
-    position: absolute;
-    left: 10%;
-    top:30%;
-    z-index: 5;
+    line-height: 1.1;
+    margin-bottom: 30px; /* Locks spacing between header and specs cleanly */
 }
-.textn{
+
+.textn {
     color: rgba(255, 255, 255, 0.409);
     font-size: 15px;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 600;
-    display: flex;
-    position: absolute;
-    left: 10%;
-    top:77%;
-    z-index: 5;
 }
-.textn2{
+
+.textn2 {
     color: rgb(255, 255, 255);
     font-size: 85px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
     font-weight: 600;
-    display: flex;
-    position: absolute;
-    left: 10.3%;
-    top:45%;
-    z-index: 5;
-    opacity:0;
-
+    opacity: 0; /* Preserved for your custom trigger animations */
 }
 
 /* SECOND MAINSECOND SECTION */
-.mainsecond {
-    position: relative;   
-    width: 100%;
-    height: 100vh;        /* Takes up exactly the next full viewport screen */
-    overflow: hidden;     /* Keeps the second video contained here */
+.box1 {
+    width: 430px;
+    height: 550px;
+    background: rgba(255, 255, 255, 0.048);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 9;
 }
 
-/* SECOND VIDEO SECTION */
-.secondvid{
-filter:
-grayscale(100%)
-brightness(40%)
-contrast(120%);
-transform: scaleX(-1);
-width: 100%;
-height:100%;
-object-fit: cover;
-top:0;
-left:0;
-z-index: 5;
-display: flex;
-position:absolute;
-}
-.box1{
-  width: 430px;
-  height: 550px;
-  background: rgba(255, 255, 255, 0.048);
-  top:18%;
-  left:68%;
-  border-radius: 20px;
-  position: absolute;
-  z-index: 9;
-}
-
-.text2{
+.text2 {
     color: rgb(255, 255, 255);
     font-size: 85px;
     font-family: 'Trebuchet MS', Arial, sans-serif;
     font-weight: 400;
-    position: absolute;
-    top: 45%;
-    left: 30%;;
-    z-index: 7;          /* Higher than video z-index (5) so it shows on top */
+    z-index: 7;
 }
 
 /* FOOTER BAR SECTION */
-.footbar{
-display: flex;
-justify-content: center;
-text-align: center;
-padding: 15px 1px;
-background: linear-gradient(
-    to bottom right,
-    #00000097,
-    #11111198,
-    #14131376,
-    #0000005d
-);
-color: rgba(255, 255, 255, 0.552);
-font-size: 13px;
-border-top: 2px solid rgba(61, 60, 60, 0.77);
-font-style: italic;
+.footbar {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 15px 20px;
+    background: linear-gradient(
+        to bottom right,
+        #00000097,
+        #11111198,
+        #14131376,
+        #0000005d
+    );
+    color: rgba(255, 255, 255, 0.552);
+    font-size: 13px;
+    border-top: 2px solid rgba(61, 60, 60, 0.77);
+    font-style: italic;
 }
-/* ==========================================
-   MOBILE RESPONSIVE STYLES (Max width 768px)
-   ========================================== */
-@media screen and (max-width: 768px) {
-    
+
+/* MOBILE RESPONSIVE STYLES (Max width 1024px) */
+@media screen and (max-width: 1024px) {
     .navmain {
-        width: 100%;
-        padding: 15px 20px; /* Reduce padding so links don't crowd out */
+        padding: 15px 25px;
     }
+    
     .navlinks {
-        gap: 15px; /* Bring links closer together */
+        gap: 15px;
     }
 
-    /* 2. Scale Down the Giant Hero Typography */
+    .section1-wrapper, .section2-wrapper {
+        padding: 0 5%;
+    }
+
     .herotext {
-        font-size: 49px;  /* Much more appropriate for mobile screens */
-        left: 5%;        /* Bring it closer to the edge for more text room */
-        top: 25%;
-        width: 100%;       /* Allow text to wrap safely within bounds */
+        font-size: 42px;
+        margin-bottom: 20px;
     }
     
     .textn {
         font-size: 13px;
-        left: 5%;
-        top: 53%;
-        width: 90%;
     }
 
-    .textn2 {
-        font-size: 38px;
-        left: 5%;
-        top: 45%;
+    /* Stacks second section layout blocks cleanly on small screen sizes */
+    .section2-wrapper {
+        flex-direction: column-reverse; 
+        gap: 40px;
+        text-align: center;
+        justify-content: center;
     }
 
-    /* 3. Fix the Second Section Layout */
     .box1 {
-        width: 85%;       /* Fluid width adapts perfectly to any phone screen */
-        height: 450px;    /* Slightly shorter height for smaller viewports */
-        left: 50%;        /* Pair with transform below to center it perfectly */
-        top: 10%;
-        transform: translateX(-50%); /* Keeps the container horizontally centered */
+        width: 100%;
+        max-width: 340px;
+        height: 420px;
     }
 
     .text2 {
-        font-size: 38px;  /* Scales down your name title */
-        left: 50%;
-        top: 55%;
-        transform: translateX(-50%);
-        text-align: center;
-        width: 90%;
+        font-size: 38px;
     }
 }
