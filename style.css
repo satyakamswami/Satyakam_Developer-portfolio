@@ -24,16 +24,16 @@ h1{
     font-style: italic;
 }
 span::after{
-    content:"Video Editor?";
+    content:"Backend Dev?";
     animation: change 4s infinite;
 }
 @keyframes change{
     25%{
-        content:"Motion Expert?";
+        content:"Frontend Dev?";
 
     }
     30%{
-        content:"SEO Expert?"
+        content:"Full Stack?"
     }
 }
 .button_part{
