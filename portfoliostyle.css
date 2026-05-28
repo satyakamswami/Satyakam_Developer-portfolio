@@ -1,0 +1,258 @@
+/* BACKGROUND SECTION */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Stops padding from breaking layout width calculations */
+}
+
+html, body {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden; /* Guards against horizontal layout spills */
+}
+
+body {
+    background: linear-gradient(
+        to bottom right,
+        #111111,
+        #000000,
+        #111111,
+        #000000
+    );
+    cursor: default;
+    position: relative;
+    opacity: 0;
+    animation: pageFadeIn 1s ease forwards;
+}
+
+@keyframes pageFadeIn {
+    to { opacity: 1; }
+}
+
+/* MAINALL - ALL SECTION TOGETHER */
+.mainall{
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Crisp, full-screen panels */
+    overflow: hidden;
+    
+    /* Technical layout engine updates to anchor wrappers */
+    display: flex;
+    align-items: center; 
+}
+
+
+/* NAVIGATION BAR SECTION */
+.navmain {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: linear-gradient(
+        to bottom right,
+        #00000097,
+        #11111198,
+        #14131376,
+        #0000005d
+    );
+    z-index: 15;
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+}
+
+.navlinks {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    
+}
+
+.navi {
+    color: rgba(255, 255, 255, 0.509);
+    font-family: 'Courier New', Courier, monospace;
+    text-decoration: none;
+    transition: transform 0.2s ease, color 0.2s ease;
+    position: relative;
+
+}
+
+/* Highlights the text of the active page */
+.navi.active {
+    color: rgb(255, 255, 255);
+}
+
+/* Draws the custom underline */
+.navi.active::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px; /* Thickness of the underline */
+    bottom: -6px; /* How far below the text the line sits */
+    left: 0;
+    background-color: rgb(255, 255, 255);
+    border-radius: 2px; /* Softens the edges of the line */
+}
+
+.upwork {
+    background-color: rgb(0, 0, 0);
+    border-radius: 20px;
+    border: 2px solid rgb(255, 255, 255); /* Reduced from 7px for a cleaner look */
+    padding: 6px 16px; /* Adds breathing room around the text inside the button */
+    color: #ffffff;
+    font-size: 16px; /* Lowered from 20px to match standard navigation sizes better */
+    display: inline-flex; /* Ensures the text inside the button stays centered */
+    align-items: center;
+    justify-content: center;
+}
+
+/* NAVIGATION BAR HOVER SECTION */
+.home:hover, .portfolio:hover, .contact:hover {
+    transform: scale(1.05);
+    color: rgb(255, 255, 255);
+}
+
+.upwork:hover {
+    transform: scale(1.05);
+    background-color: white;
+    color: #000000;
+}
+
+
+
+/* FOOTER BAR SECTION */
+.footbar {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 15px 20px;
+    background: linear-gradient(
+        to bottom right,
+        #00000097,
+        #11111198,
+        #14131376,
+        #0000005d
+    );
+    color: rgba(255, 255, 255, 0.552);
+    font-size: 13px;
+    border-top: 2px solid rgba(61, 60, 60, 0.77);
+    font-style: italic;
+}
+.nav-toggle {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+}
+
+/* MOBILE RESPONSIVE STYLES (Max width 1024px) */
+@media screen and (max-width: 1024px) {
+    .navmain {
+        padding: 15px 25px;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
+
+    /* Hide the checkbox entirely */
+    .nav-toggle {
+        display: none;
+    }
+
+    /* Style the 3-line Hamburger container */
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        cursor: pointer;
+        z-index: 20;
+    }
+
+    /* Style the individual horizontal lines */
+    .hamburger span {
+        display: block;
+        height: 3px;
+        width: 100%;
+        background-color: rgb(255, 255, 255);
+        border-radius: 3px;
+        transition: all 0.3s ease;
+    }
+
+    /* Update this block in your media query */
+    .navlinks .navi {
+        font-size: 18px;
+        display: inline-block; /* Changed from block */
+        width: auto; /* Changed from 100% */
+        margin: 0 auto; /* Centers the items in the column */
+    }
+    /* Transform Navlinks into a full-width drop-down panel */
+    .navlinks {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        position: absolute;
+        
+        /* Positions it exactly below the main navbar */
+        top: 100%; 
+        left: 0;
+        width: 100%;
+        padding: 30px 0;
+        text-align: center;
+        background: rgba(17, 17, 17, 0.98);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        
+        /* Pulls it up out of view by default */
+        transform: translateY(-150%);
+        opacity: 0;
+        pointer-events: none; /* Prevents clicking links while hidden */
+        transition: transform 0.4s ease, opacity 0.3s ease;
+        z-index: 14;
+    }
+
+    /* Make the nav links slightly larger for easy mobile tapping */
+    .navlinks .navi {
+        font-size: 18px;
+        display: block;
+        width: 100%;
+    }
+
+    /* CSS TRICK: When checkbox is checked, slide the menu DOWN */
+    .nav-toggle:checked ~ .navlinks {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto; /* Reactivates link clicks when visible */
+    }
+
+    /* OPTIONAL: Turns the hamburger into an 'X' when clicked */
+    .nav-toggle:checked ~ .hamburger span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .nav-toggle:checked ~ .hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+    .nav-toggle:checked ~ .hamburger span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+    .navi.active {
+    color: rgb(255, 255, 255);
+}
+
+/* Draws the custom underline */
+.navi.active::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px; /* Thickness of the underline */
+    bottom: -6px; /* How far below the text the line sits */
+    left: 0%;
+    background-color: rgba(255, 255, 255, 0.272);
+    border-radius: 2px; /* Softens the edges of the line */
+}
+}
