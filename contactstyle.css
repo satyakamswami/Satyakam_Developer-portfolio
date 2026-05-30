@@ -30,15 +30,14 @@ body {
 }
 
 /* MAINALL - ALL SECTION TOGETHER */
-.mainall{
+.mainall {
     position: relative;
     width: 100%;
-    height: 100vh; /* Crisp, full-screen panels */
+    height: 100vh; 
     overflow: hidden;
-    
-    /* Technical layout engine updates to anchor wrappers */
     display: flex;
     align-items: center; 
+    /* No justify-content here! */
 }
 
 
@@ -120,12 +119,72 @@ backdrop-filter: blur(5px);
     background-color: white;
     color: #000000;
 }
-.inname{
-    color: #ffffff;
-    align-items: center;
-    justify-content: center;
+/* FORM CONTAINER */
+.firstform {
+    display: flex;
+    flex-direction: column; 
+    gap: 15px; 
+    background: rgba(20, 20, 20, 0.7); 
+    padding: 40px; 
+    border-radius: 15px; 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    width: 100%;
+    max-width: 450px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
+    backdrop-filter: blur(10px); 
+    
+    /* ADD THESE TWO LINES */
+    margin-left: auto; /* Pushes ONLY the form to the right */
+    margin-right: 5%; /* Creates the gap between the form and the screen edge */
 }
 
+/* FORM TEXT / LABELS */
+.formm {
+    color: #ffffff;
+    font-family: 'Courier New', Courier, monospace; /* Matches your navigation font */
+    font-size: 15px;
+    margin-bottom: -5px; /* Pulls the text slightly closer to its input box */
+    letter-spacing: 1px;
+}
+
+/* INPUT FIELDS */
+.firstform input[type="text"] {
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.5); /* Dark background for the text boxes */
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    outline: none; /* Removes the default ugly blue glow when clicked */
+    transition: border 0.3s ease, background 0.3s ease;
+}
+
+/* INPUT FOCUS STATE (When user is typing) */
+.firstform input[type="text"]:focus {
+    border-color: #ffffff; /* Highlights the border white when clicked */
+    background: rgba(20, 20, 20, 0.9);
+}
+/* SUBMIT BUTTON */
+.submit-btn {
+    margin-top: 10px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 20px;
+    border: 2px solid rgb(255, 255, 255);
+    padding: 10px 20px;
+    color: #ffffff;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.submit-btn:hover {
+    transform: scale(1.02);
+    background-color: white;
+    color: #000000;
+}
 
 /* FOOTER BAR SECTION */
 .footbar {
