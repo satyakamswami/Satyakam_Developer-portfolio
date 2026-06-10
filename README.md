@@ -71,7 +71,6 @@ https://dev.satyakam.pro/
 │   └── vid2.mp4
 │
 ├── index.html
-├── home.html
 ├── portfolio.html
 ├── contact.html
 │
@@ -89,9 +88,6 @@ https://dev.satyakam.pro/
 # 📄 Pages Overview
 
 ## index.html
-Landing page with animated role-switching hero section.
-
-## home.html
 Main cinematic homepage containing:
 - Hero section
 - Video backgrounds
